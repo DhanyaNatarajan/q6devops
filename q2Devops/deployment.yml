@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: q1devops
+  labels:
+    app: q2Devops
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: q1devops
+  template:
+    metadata:
+      labels:
+        app: q1devops
+    spec:
+      containers:
+        - name: q1webapp
+          image: dhanyanatarajan/q1devops:v1
