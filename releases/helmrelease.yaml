@@ -1,0 +1,18 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: helmrelease
+  namespace: default
+  annotations:
+    fluxcd.io/automated: "false"
+    fluxcd.io/tag.chart-image: glob:3.1.1-debian-9-*
+spec:
+  releaseName: helmrelease
+  chart:
+    git: ssh://git@github.com/DhanyaNatarajan/q6devops
+    ref: master
+    path: q6devops
+  values:
+    ingress:
+      enabled: false
